@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn" class="no-js">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Type">
+
+<meta content="text/html; charset=utf-8">
+
+<meta charset="utf-8">
+
+<title>手机页面滑动</title>		
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="format-detection" content="email=no">
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+
+<link rel="stylesheet" type="text/css" href="./css/animate.min.css">
+<!--<link rel="stylesheet" type="text/css" href="./css/animations.css">-->
+<link rel="stylesheet" type="text/css" href="css/layout.css">
+
+<link rel="stylesheet" type="text/css" href="css/page.css">
+
+
+</head>
+
+<body>
+	<audio loop src="01.mp3" id="audio" autoplay="" preload="auto"></audio>
+	<div class="music"><img class="music-img ro" src="img/music.png">
+		<div class="music-p"><img src="img/music.gif"></div>
+	</div>
+<div id="page-content facialLeft">
+	<div class="page page-3 page-current" id="facialLeft">
+		<img class="page3_a" src="img/3b.png" style="width: 38%;height: 6%;position: absolute;top: 10%;left: 30%;">
+		<img class="page3_b" src="img/3d.png" style="width: 90%;height:50%;margin: 0 auto;position: absolute;top: 18%;left: 5%;">
+		<img class="page3_c" src="img/3c.png" style="width: 72%;height:16%;margin: 0 auto;position: absolute;top: 23%;left: 15%;">
+		<img class="page3_d" src="img/3f.png" style="width: 62%;height:25%;margin: 0 auto;position: absolute;top: 41%;left: 17%;">
+		<div class="go"><img src="img/go.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s"></div>
+	</div>
+	<!--<div class="page page-2 page-current" id="facialLeft">
+		<img class="page2_a" src="img/2c.png" style="width: 80%;height: 27%;position: absolute;top: 0%;left: 8%;">
+		<img class="page2_b" src="img/2b.png" style="width: 90%;height:	54%;margin: 0 auto;position: absolute;top: 18%;left: 5%;">
+		<img class="page2_c" src="img/2f.png" style="width: 75%;height:	28%;margin: 0 auto;position: absolute;top: 22%;left: 13%;">
+		<img class="page2_d" src="img/2e.png" style="width: 77%;height:	16%;margin: 0 auto;position: absolute;top: 53%;left: 13%;">
+		<img class="page2_e" src="img/2d.png"/style="width: 16%;height: 10%;position: absolute;top: 7%;left: 68%;">
+		<div class="go"><img src="img/go.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s"></div>
+	</div>
+	<div class="page page-1 page-current">
+		<img src="img/1b.png" 	class="page1_a">
+		<img src="img/1d.png"  class="page1_b">
+		<img src="img/1e.png"  class="page1_c">
+		<div class="go"><img src="img/go.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s"></div>
+	</div>-->
+</div>
+
+
+
+<div id="page-ft"></div>
+<script src="https://cdn.bootcss.com/Swiper/4.0.7/js/swiper.min.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+	var mySwiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		onSlideChangeEnd: function (swiper) {
+			swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		},
+		onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+			swiperAnimateCache(swiper); //隐藏动画元素 
+			setTimeout(function () {
+				swiperAnimate(swiper); //初始化完成开始动画
+			}, 100);
+		}
+	});
+
+	var audio = document.getElementById("audio");
+	audio.load();
+	audio.play();
+
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		audio.play();
+	}, false);
+	$('.music').click(function () {
+		if ($('.music-img').is('.ro')) {
+			$('.music-img').removeClass('ro')
+			$('.music-p').css('display', 'none')
+			audio.pause();
+		} else {
+			$('.music-img').addClass('ro')
+			$('.music-p').css('display', 'block')
+			audio.play();
+		}
+	})
+
+</script>
+</body>
+
+</html>

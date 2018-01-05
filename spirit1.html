@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn" class="no-js">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Content-Type">
+
+<meta content="text/html; charset=utf-8">
+
+<meta charset="utf-8">
+
+<title>奔跑吧，精灵！</title>		
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="format-detection" content="email=no">
+
+<link rel="stylesheet" type="text/css" href="http://file.dangapp.com/activitys/hf/spiritH5/css/reset.css">
+
+<link rel="stylesheet" type="text/css" href="http://file.dangapp.com/activitys/hf/spiritH5/css/animate.min.css?v=1">
+<link rel="stylesheet" type="text/css" href="http://file.dangapp.com/activitys/hf/spiritH5/css/layout.css">
+
+<link rel="stylesheet" type="text/css" href="http://file.dangapp.com/activitys/hf/spiritH5/css/page.css">
+</head>
+
+<body>
+	<audio loop src="http://file.dangapp.com/activitys/hf/spiritH5/img/01.mp3" id="audio" autoplay="" preload="auto"></audio>
+	<div class="music"><img class="music-img ro" src="http://file.dangapp.com/activitys/hf/spiritH5/img/music.png">
+		<div class="music-p"><img src="http://file.dangapp.com/activitys/hf/spiritH5/img/music.gif"></div>
+	</div>
+<div id="page-content facialLeft">
+	<div class="page page-3 page-current" id="facialLeft">
+		<img class="page3_a" src="http://file.dangapp.com/activitys/hf/spiritH5/img/3b.png" style="width: 38%;height: 6%;position: absolute;top: 10%;left: 21%;">
+		<img class="page3_b" src="http://file.dangapp.com/activitys/hf/spiritH5/img/3d.png" style="width: 90%;height:54%;margin: 0 auto;position: absolute;top: 18%;left: 5%;">
+		<img class="page3_c" src="http://file.dangapp.com/activitys/hf/spiritH5/img/3c.png" style="width: 72%;height:16%;margin: 0 auto;position: absolute;top: 23%;left: 15%;">
+		<img class="page3_d" src="http://file.dangapp.com/activitys/hf/spiritH5/img/3f3.png?v=1" style="width: 62%;height:28%;margin: 0 auto;position: absolute;top: 41%;left: 17%;">
+		<div class="go"><img src="http://file.dangapp.com/activitys/hf/spiritH5/img/go.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s"></div>
+	</div>
+	<div class="page page-2 page-current" id="facialLeft">
+		<img class="page2_a" src="http://file.dangapp.com/activitys/hf/spiritH5/img/2c.png" style="width: 80%;height: 27%;position: absolute;top: 0%;left: 8%;">
+		<img class="page2_b" src="http://file.dangapp.com/activitys/hf/spiritH5/img/2b.png" style="width: 90%;height:	54%;margin: 0 auto;position: absolute;top: 18%;left: 5%;">
+		<img class="page2_c" src="http://file.dangapp.com/activitys/hf/spiritH5/img/2f.png" style="width: 75%;height:	28%;margin: 0 auto;position: absolute;top: 22%;left: 13%;">
+		<img class="page2_d" src="http://file.dangapp.com/activitys/hf/spiritH5/img/2e.png" style="width: 77%;height:	16%;margin: 0 auto;position: absolute;top: 53%;left: 13%;">
+		<img class="page2_e" src="http://file.dangapp.com/activitys/hf/spiritH5/img/2d.png" style="width: 16%;height: 10%;position: absolute;top: 7%;left: 68%;">
+		<div class="go"><img src="http://file.dangapp.com/activitys/hf/spiritH5/img/go.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s"></div>
+	</div>
+	<div class="page page-1 page-current">
+		<img src="http://file.dangapp.com/activitys/hf/spiritH5/img/1b.png" 	class="page1_a">
+		<img src="http://file.dangapp.com/activitys/hf/spiritH5/img/1d.png"  class="page1_b">
+		<img src="http://file.dangapp.com/activitys/hf/spiritH5/img/1e.png"  class="page1_c">
+		<div class="go"><img src="img/go.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="1s"></div>
+	</div>
+</div>
+
+
+
+<div id="page-ft"></div>
+<script src="https://cdn.bootcss.com/Swiper/4.0.7/js/swiper.min.js"></script>
+<script type="text/javascript" src="http://file.dangapp.com/activitys/hf/spiritH5/js/zepto.min.js"></script>
+<script type="text/javascript" src="http://file.dangapp.com/activitys/hf/spiritH5/js/touch.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+<script type="text/javascript" src="http://file.dangapp.com/activitys/hf/spiritH5/js/index.js"></script>
+<script type="text/javascript">
+	var mySwiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		onSlideChangeEnd: function (swiper) {
+			swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		},
+		onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+			swiperAnimateCache(swiper); //隐藏动画元素 
+			setTimeout(function () {
+				swiperAnimate(swiper); //初始化完成开始动画
+			}, 100);
+		}
+	});
+
+	var audio = document.getElementById("audio");
+	audio.load();
+	audio.play();
+
+	document.addEventListener("WeixinJSBridgeReady", function () {
+		audio.play();
+	}, false);
+	$('.music').click(function () {
+		if ($('.music-img').is('.ro')) {
+			$('.music-img').removeClass('ro')
+			$('.music-p').css('display', 'none')
+			audio.pause();
+		} else {
+			$('.music-img').addClass('ro')
+			$('.music-p').css('display', 'block')
+			audio.play();
+		}
+	})
+
+</script>
+</body>
+
+</html>
